@@ -1,7 +1,7 @@
 import { Zap } from 'lucide-react'
-import { ActionLink } from '@/components/action-link'
-import { WhatsAppIcon } from '@/components/brand-icons'
-import { whatsappLink } from '@/lib/site'
+import { ActionLink } from '@/components/ui/action-link'
+import { WhatsAppIcon } from '@/components/ui/brand-icons'
+import { whatsappLink } from '@/config/site'
 
 export function CtaBand() {
   return (

@@ -2,8 +2,8 @@
 
 import { CheckCircle2, ChevronDown, Send } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
-import { actionVariants } from '@/components/action-link'
-import { services, whatsappLink } from '@/lib/site'
+import { actionVariants } from '@/components/ui/action-link'
+import { services, whatsappLink } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 const fieldClass =

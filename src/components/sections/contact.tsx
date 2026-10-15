@@ -1,9 +1,9 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { WhatsAppIcon } from '@/components/brand-icons'
-import { ContactForm } from '@/components/contact-form'
-import { SectionHeading } from '@/components/section-heading'
-import { company, whatsappLink } from '@/lib/site'
+import { WhatsAppIcon } from '@/components/ui/brand-icons'
+import { ContactForm } from '@/components/sections/contact-form'
+import { SectionHeading } from '@/components/ui/section-heading'
+import { company, whatsappLink } from '@/config/site'
 
 function ContactItem({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
   return (

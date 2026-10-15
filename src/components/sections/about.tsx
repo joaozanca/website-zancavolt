@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Check } from 'lucide-react'
-import { SectionHeading } from '@/components/section-heading'
+import { SectionHeading } from '@/components/ui/section-heading'
 
 const stats = [
   { value: '+500', label: 'projetos entregues' },

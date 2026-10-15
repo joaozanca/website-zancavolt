@@ -1,0 +1,33 @@
+import { About } from '@/components/sections/about'
+import { Contact } from '@/components/sections/contact'
+import { CtaBand } from '@/components/sections/cta-band'
+import { FeaturesStrip } from '@/components/sections/features-strip'
+import { Hero } from '@/components/sections/hero'
+import { Portfolio } from '@/components/sections/portfolio'
+import { Process } from '@/components/sections/process'
+import { Services } from '@/components/sections/services'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
+import { Testimonials } from '@/components/sections/testimonials'
+import { WhatsAppFloat } from '@/components/layout/whatsapp-float'
+
+export default function Page() {
+  return (
+    <>
+      <SiteHeader />
+      <main>
+        <Hero />
+        <FeaturesStrip />
+        <Services />
+        <About />
+        <Process />
+        <Portfolio />
+        <Testimonials />
+        <CtaBand />
+        <Contact />
+      </main>
+      <SiteFooter />
+      <WhatsAppFloat />
+    </>
+  )
+}

@@ -2,7 +2,7 @@
 
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react'
 import { useRef, useState } from 'react'
-import { SectionHeading } from '@/components/section-heading'
+import { SectionHeading } from '@/components/ui/section-heading'
 import { cn } from '@/lib/utils'
 
 const testimonials = [

@@ -1,5 +1,5 @@
-import { WhatsAppIcon } from '@/components/brand-icons'
-import { whatsappLink } from '@/lib/site'
+import { WhatsAppIcon } from '@/components/ui/brand-icons'
+import { whatsappLink } from '@/config/site'
 
 export function WhatsAppFloat() {
   return (

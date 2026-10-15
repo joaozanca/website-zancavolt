@@ -1,7 +1,7 @@
 import { ArrowRight, MessageCircle } from 'lucide-react'
-import { ActionLink } from '@/components/action-link'
-import { SectionHeading } from '@/components/section-heading'
-import { services, whatsappLink, type Service } from '@/lib/site'
+import { ActionLink } from '@/components/ui/action-link'
+import { SectionHeading } from '@/components/ui/section-heading'
+import { services, whatsappLink, type Service } from '@/config/site'
 
 function ServiceCard({ title, description, icon: Icon }: Service) {
   return (

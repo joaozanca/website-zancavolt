@@ -2,9 +2,9 @@
 
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
-import { ActionLink } from '@/components/action-link'
-import { Logo } from '@/components/logo'
-import { navItems, whatsappLink } from '@/lib/site'
+import { ActionLink } from '@/components/ui/action-link'
+import { Logo } from '@/components/layout/logo'
+import { navItems, whatsappLink } from '@/config/site'
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)

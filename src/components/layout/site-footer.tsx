@@ -1,6 +1,6 @@
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from '@/components/brand-icons'
-import { Logo } from '@/components/logo'
-import { company, navItems, services } from '@/lib/site'
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from '@/components/ui/brand-icons'
+import { Logo } from '@/components/layout/logo'
+import { company, navItems, services } from '@/config/site'
 
 const socials = [
   { label: 'Instagram', href: company.social.instagram, Icon: InstagramIcon },

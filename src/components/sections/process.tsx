@@ -1,5 +1,5 @@
 import { ClipboardList, Hammer, MessageCircle, Search } from 'lucide-react'
-import { SectionHeading } from '@/components/section-heading'
+import { SectionHeading } from '@/components/ui/section-heading'
 
 const steps = [
   { icon: MessageCircle, title: 'Contato', text: 'Você nos chama pelo WhatsApp ou formulário e conta sua necessidade.' },

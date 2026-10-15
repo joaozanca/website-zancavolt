@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { SectionHeading } from '@/components/section-heading'
+import { SectionHeading } from '@/components/ui/section-heading'
 import { cn } from '@/lib/utils'
 
 const categories = ['Todos', 'Elétrica', 'Painéis', 'Segurança', 'Ar comprimido'] as const
