@@ -6,6 +6,8 @@ dist/
 build/
 out/
 .astro/
+next-env.d.ts
+*.tsbuildinfo
 .next/
 .nuxt/
 .output/
