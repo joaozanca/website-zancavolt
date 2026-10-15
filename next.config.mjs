@@ -1,23 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Gera o site como HTML/CSS/JS estáticos na pasta out/, publicável em qualquer hospedagem.
+  output: 'export',
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
+    // Exportação estática não tem servidor para otimizar imagens sob demanda.
     unoptimized: true,
-  },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Strict-Transport-Security', value: 'max-age=63072000' },
-          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
-        ],
-      },
-    ]
   },
 }
 
