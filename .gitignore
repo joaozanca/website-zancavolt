@@ -1,0 +1,49 @@
+# Dependências
+node_modules/
+
+# Builds e caches de frameworks
+dist/
+build/
+out/
+.astro/
+.next/
+.nuxt/
+.output/
+.svelte-kit/
+.vercel/
+.netlify/
+.wrangler/
+.cache/
+
+# Variáveis de ambiente (segredos) — versionar só o .env.example
+.env
+.env.*
+!.env.example
+
+# Testes e relatórios
+coverage/
+test-results/
+playwright-report/
+cypress/screenshots/
+cypress/videos/
+reports/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Sistema/editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Skills e instruções de IA — mantidas apenas localmente
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+docs/briefing.md
+docs/local/
