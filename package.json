@@ -1,8 +1,11 @@
 {
-  "name": "my-project",
+  "name": "zancavolt-site",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@12.3.4",
+  "description": "Site institucional da ZancaVolt — serviços elétricos em São José dos Pinhais, Curitiba e Região Metropolitana",
+  "engines": {
+    "node": ">=20.9"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
