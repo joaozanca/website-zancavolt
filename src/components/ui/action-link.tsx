@@ -7,8 +7,8 @@ export const actionVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-foreground shadow-sm hover:bg-yellow-300',
-        dark: 'bg-ink text-ink-foreground hover:bg-slate-800',
+        primary: 'bg-primary text-primary-foreground shadow-sm hover:bg-primary-light',
+        dark: 'bg-ink text-ink-foreground hover:bg-ink-hover',
         outline: 'border border-ink-foreground/40 text-ink-foreground hover:border-primary hover:text-primary',
         'outline-light': 'border border-border text-foreground hover:border-foreground',
       },

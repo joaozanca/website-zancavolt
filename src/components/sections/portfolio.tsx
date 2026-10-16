@@ -9,12 +9,42 @@ const categories = ['Todos', 'Elétrica', 'Painéis', 'Segurança', 'Ar comprimi
 type Category = (typeof categories)[number]
 
 const projects: { src: string; title: string; category: Exclude<Category, 'Todos'>; place: string }[] = [
-  { src: '/images/projeto-eletrica.png', title: 'Infraestrutura com eletrocalhas', category: 'Elétrica', place: 'Centro comercial' },
-  { src: '/images/projeto-painel.png', title: 'Painel de comando industrial', category: 'Painéis', place: 'Indústria metalúrgica' },
-  { src: '/images/projeto-cftv.png', title: 'Sistema de CFTV completo', category: 'Segurança', place: 'Condomínio residencial' },
-  { src: '/images/projeto-ar.png', title: 'Rede de ar comprimido em PPR', category: 'Ar comprimido', place: 'Linha de produção' },
-  { src: '/images/projeto-alarme.png', title: 'Cerca elétrica e monitoramento', category: 'Segurança', place: 'Residência' },
-  { src: '/images/projeto-quadro.png', title: 'Manutenção de quadro de distribuição', category: 'Elétrica', place: 'Residência' },
+  {
+    src: '/images/projeto-eletrica.png',
+    title: 'Infraestrutura com eletrocalhas',
+    category: 'Elétrica',
+    place: 'Centro comercial',
+  },
+  {
+    src: '/images/projeto-painel.png',
+    title: 'Painel de comando industrial',
+    category: 'Painéis',
+    place: 'Indústria metalúrgica',
+  },
+  {
+    src: '/images/projeto-cftv.png',
+    title: 'Sistema de CFTV completo',
+    category: 'Segurança',
+    place: 'Condomínio residencial',
+  },
+  {
+    src: '/images/projeto-ar.png',
+    title: 'Rede de ar comprimido em PPR',
+    category: 'Ar comprimido',
+    place: 'Linha de produção',
+  },
+  {
+    src: '/images/projeto-alarme.png',
+    title: 'Cerca elétrica e monitoramento',
+    category: 'Segurança',
+    place: 'Residência',
+  },
+  {
+    src: '/images/projeto-quadro.png',
+    title: 'Manutenção de quadro de distribuição',
+    category: 'Elétrica',
+    place: 'Residência',
+  },
 ]
 
 export function Portfolio() {
@@ -62,13 +92,16 @@ export function Portfolio() {
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" aria-hidden="true" />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent"
+                aria-hidden="true"
+              />
               <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5">
                 <span className="w-fit rounded-md bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">
                   {p.category}
                 </span>
                 <h3 className="text-base font-bold text-ink-foreground">{p.title}</h3>
-                <p className="text-xs text-slate-300">{p.place}</p>
+                <p className="text-xs text-ink-soft">{p.place}</p>
               </div>
             </li>
           ))}

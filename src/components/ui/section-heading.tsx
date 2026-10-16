@@ -20,7 +20,10 @@ export function SectionHeading({
   const dark = tone === 'dark'
   return (
     <div className={cn('flex max-w-2xl flex-col gap-3', align === 'center' && 'mx-auto items-center text-center')}>
-      <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-yellow-600 uppercase data-[dark=true]:text-primary" data-dark={dark}>
+      <span
+        className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-primary-dark uppercase data-[dark=true]:text-primary"
+        data-dark={dark}
+      >
         <span className="h-px w-6 bg-current" aria-hidden="true" />
         {eyebrow}
       </span>

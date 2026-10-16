@@ -18,10 +18,7 @@ export function SiteHeader() {
           <ul className="flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="text-sm font-medium text-ink-muted transition-colors hover:text-primary"
-                >
+                <a href={item.href} className="text-sm font-medium text-ink-muted transition-colors hover:text-primary">
                   {item.label}
                 </a>
               </li>
@@ -36,7 +33,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex size-10 items-center justify-center rounded-lg text-ink-foreground hover:bg-white/10 lg:hidden"
+            className="flex size-10 items-center justify-center rounded-lg text-ink-foreground hover:bg-overlay/10 lg:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? 'Fechar menu' : 'Abrir menu'}
@@ -54,7 +51,7 @@ export function SiteHeader() {
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-base font-medium text-ink-foreground hover:bg-white/5 hover:text-primary"
+                  className="block rounded-lg px-3 py-3 text-base font-medium text-ink-foreground hover:bg-overlay/5 hover:text-primary"
                 >
                   {item.label}
                 </a>

@@ -41,7 +41,8 @@ export function Testimonials() {
     const card = track.children[0] as HTMLElement | undefined
     if (!card) return
     const maxScroll = track.scrollWidth - track.clientWidth
-    const i = track.scrollLeft >= maxScroll - 4 ? testimonials.length - 1 : Math.round(track.scrollLeft / card.offsetWidth)
+    const i =
+      track.scrollLeft >= maxScroll - 4 ? testimonials.length - 1 : Math.round(track.scrollLeft / card.offsetWidth)
     setIndex(i)
   }
 
@@ -70,7 +71,7 @@ export function Testimonials() {
               onClick={() => goTo(index + 1)}
               disabled={index === testimonials.length - 1}
               aria-label="Próximo depoimento"
-              className="flex size-11 items-center justify-center rounded-full bg-ink text-ink-foreground transition-colors hover:bg-slate-800 disabled:opacity-40"
+              className="flex size-11 items-center justify-center rounded-full bg-ink text-ink-foreground transition-colors hover:bg-ink-hover disabled:opacity-40"
             >
               <ChevronRight className="size-5" />
             </button>

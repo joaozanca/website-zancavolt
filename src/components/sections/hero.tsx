@@ -34,7 +34,7 @@ export function Hero() {
             Soluções elétricas e de segurança com <span className="text-primary">qualidade e precisão</span>
           </h1>
 
-          <p className="max-w-xl text-lg leading-relaxed text-slate-300">
+          <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
             Instalação, montagem e manutenção para indústrias, comércios, condomínios e residências — com equipe
             qualificada e total respeito às normas de segurança.
           </p>

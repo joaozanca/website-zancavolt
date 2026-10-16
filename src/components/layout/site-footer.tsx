@@ -15,8 +15,8 @@ export function SiteFooter() {
         <div className="flex flex-col gap-5">
           <Logo />
           <p className="text-sm leading-relaxed">
-            Serviços técnicos em elétrica, segurança eletrônica e ar comprimido para indústrias, comércios,
-            condomínios e residências.
+            Serviços técnicos em elétrica, segurança eletrônica e ar comprimido para indústrias, comércios, condomínios
+            e residências.
           </p>
           <ul className="flex gap-3">
             {socials.map(({ label, href, Icon }) => (
