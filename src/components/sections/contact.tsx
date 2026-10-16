@@ -38,17 +38,17 @@ export function Contact() {
           <div className="flex flex-col gap-6 lg:col-span-2">
             <ul className="flex flex-col gap-5 rounded-2xl bg-muted p-6 md:p-8">
               <ContactItem icon={<Phone aria-hidden="true" />} label="Telefone">
-                <a href={company.phoneHref} className="hover:text-yellow-700">
+                <a href={company.phoneHref} className="hover:text-primary-darker">
                   {company.phone}
                 </a>
               </ContactItem>
               <ContactItem icon={<WhatsAppIcon />} label="WhatsApp">
-                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-yellow-700">
+                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-primary-darker">
                   {company.phone}
                 </a>
               </ContactItem>
               <ContactItem icon={<Mail aria-hidden="true" />} label="E-mail">
-                <a href={`mailto:${company.email}`} className="break-all hover:text-yellow-700">
+                <a href={`mailto:${company.email}`} className="break-all hover:text-primary-darker">
                   {company.email}
                 </a>
               </ContactItem>

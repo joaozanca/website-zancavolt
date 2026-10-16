@@ -7,7 +7,7 @@ export function CtaBand() {
   return (
     <section aria-labelledby="cta-title" className="relative overflow-hidden bg-primary">
       <Zap
-        className="absolute -top-10 -right-10 size-64 text-yellow-300 md:right-10"
+        className="absolute -top-10 -right-10 size-64 text-primary-light md:right-10"
         strokeWidth={1}
         aria-hidden="true"
       />

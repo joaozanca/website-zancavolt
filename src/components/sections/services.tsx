@@ -5,7 +5,7 @@ import { services, whatsappLink, type Service } from '@/config/site'
 
 function ServiceCard({ title, description, icon: Icon }: Service) {
   return (
-    <article className="group relative flex flex-col gap-4 rounded-xl border border-border bg-card p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg hover:shadow-slate-900/5">
+    <article className="group relative flex flex-col gap-4 rounded-xl border border-border bg-card p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg hover:shadow-ink-shadow/5">
       <span className="flex size-12 items-center justify-center rounded-lg bg-ink text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
         <Icon className="size-6" strokeWidth={1.75} aria-hidden="true" />
       </span>
@@ -15,7 +15,7 @@ function ServiceCard({ title, description, icon: Icon }: Service) {
         href={whatsappLink(`Olá! Gostaria de saber mais sobre: ${title}.`)}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground after:absolute after:inset-0 hover:text-yellow-700"
+        className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground after:absolute after:inset-0 hover:text-primary-darker"
       >
         Saiba mais
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />

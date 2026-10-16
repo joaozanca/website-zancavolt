@@ -19,7 +19,7 @@ export function About() {
     <section id="sobre" aria-labelledby="sobre-title" className="bg-muted py-20 md:py-28">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-2 lg:gap-16">
         <div className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl shadow-slate-900/10 sm:aspect-[4/3] lg:aspect-[4/5]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl shadow-ink-shadow/10 sm:aspect-[4/3] lg:aspect-[4/5]">
             <Image
               src="/images/sobre-equipe.png"
               alt="Eletricistas da ZancaVolt inspecionando um quadro de distribuição"

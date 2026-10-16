@@ -70,7 +70,7 @@ export function Testimonials() {
               onClick={() => goTo(index + 1)}
               disabled={index === testimonials.length - 1}
               aria-label="Próximo depoimento"
-              className="flex size-11 items-center justify-center rounded-full bg-ink text-ink-foreground transition-colors hover:bg-slate-800 disabled:opacity-40"
+              className="flex size-11 items-center justify-center rounded-full bg-ink text-ink-foreground transition-colors hover:bg-ink-hover disabled:opacity-40"
             >
               <ChevronRight className="size-5" />
             </button>

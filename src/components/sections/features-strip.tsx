@@ -10,7 +10,7 @@ const features = [
 export function FeaturesStrip() {
   return (
     <section aria-label="Nossos diferenciais" className="relative z-10 px-5 md:px-8">
-      <ul className="mx-auto -mt-12 grid max-w-7xl grid-cols-1 overflow-hidden rounded-xl border border-border bg-card shadow-xl shadow-slate-900/10 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mx-auto -mt-12 grid max-w-7xl grid-cols-1 overflow-hidden rounded-xl border border-border bg-card shadow-xl shadow-ink-shadow/10 sm:grid-cols-2 lg:grid-cols-4">
         {features.map(({ icon: Icon, title, text }) => (
           <li
             key={title}

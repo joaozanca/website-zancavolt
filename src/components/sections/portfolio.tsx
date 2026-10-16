@@ -68,7 +68,7 @@ export function Portfolio() {
                   {p.category}
                 </span>
                 <h3 className="text-base font-bold text-ink-foreground">{p.title}</h3>
-                <p className="text-xs text-slate-300">{p.place}</p>
+                <p className="text-xs text-ink-soft">{p.place}</p>
               </div>
             </li>
           ))}

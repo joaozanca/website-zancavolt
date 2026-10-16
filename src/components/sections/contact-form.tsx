@@ -103,7 +103,7 @@ export function ContactForm() {
 
       <p className="text-center text-xs text-muted-foreground" role="status">
         {sent ? (
-          <span className="inline-flex items-center gap-1.5 font-medium text-green-700">
+          <span className="inline-flex items-center gap-1.5 font-medium text-success">
             <CheckCircle2 className="size-4" aria-hidden="true" />
             Abrimos o WhatsApp com sua mensagem. É só enviar!
           </span>
