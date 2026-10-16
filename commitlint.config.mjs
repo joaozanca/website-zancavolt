@@ -1,7 +1,7 @@
 // Padrão de commit do projeto: tipo(ZV-n): descrição — ex.: feat(ZV-13): envia o formulário para o WhatsApp
 const JIRA_KEY = /^ZV-[1-9]\d*$/
 
-export default {
+const config = {
   extends: ['@commitlint/config-conventional'],
   plugins: [
     {
@@ -19,3 +19,5 @@ export default {
     'subject-case': [0],
   },
 }
+
+export default config
