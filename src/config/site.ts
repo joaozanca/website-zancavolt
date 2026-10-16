@@ -1,13 +1,4 @@
-import {
-  Cable,
-  CircuitBoard,
-  Cctv,
-  Gauge,
-  Siren,
-  Wrench,
-  Zap,
-  type LucideIcon,
-} from 'lucide-react'
+import { Cable, CircuitBoard, Cctv, Gauge, Siren, Wrench, Zap, type LucideIcon } from 'lucide-react'
 
 export const company = {
   name: 'ZancaVolt',
@@ -52,8 +43,7 @@ export const services: Service[] = [
   },
   {
     title: 'Infraestrutura elétrica',
-    description:
-      'Tubulação, eletrocalhas, leitos e cabeamento organizados para indústrias, comércios e prédios.',
+    description: 'Tubulação, eletrocalhas, leitos e cabeamento organizados para indústrias, comércios e prédios.',
     icon: Cable,
   },
   {
@@ -70,14 +60,12 @@ export const services: Service[] = [
   },
   {
     title: 'CFTV, DVR e cerca elétrica',
-    description:
-      'Câmeras de alta definição, gravação em DVR, acesso pelo celular e cerca elétrica para perímetros.',
+    description: 'Câmeras de alta definição, gravação em DVR, acesso pelo celular e cerca elétrica para perímetros.',
     icon: Cctv,
   },
   {
     title: 'Ar comprimido em PPR',
-    description:
-      'Redes de ar comprimido em PPR com baixa perda de carga, sem corrosão e instalação ágil e limpa.',
+    description: 'Redes de ar comprimido em PPR com baixa perda de carga, sem corrosão e instalação ágil e limpa.',
     icon: Gauge,
   },
   {

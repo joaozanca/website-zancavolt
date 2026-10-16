@@ -41,7 +41,8 @@ export function Testimonials() {
     const card = track.children[0] as HTMLElement | undefined
     if (!card) return
     const maxScroll = track.scrollWidth - track.clientWidth
-    const i = track.scrollLeft >= maxScroll - 4 ? testimonials.length - 1 : Math.round(track.scrollLeft / card.offsetWidth)
+    const i =
+      track.scrollLeft >= maxScroll - 4 ? testimonials.length - 1 : Math.round(track.scrollLeft / card.offsetWidth)
     setIndex(i)
   }
 

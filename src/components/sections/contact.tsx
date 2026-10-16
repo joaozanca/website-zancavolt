@@ -43,7 +43,12 @@ export function Contact() {
                 </a>
               </ContactItem>
               <ContactItem icon={<WhatsAppIcon />} label="WhatsApp">
-                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-primary-darker">
+                <a
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-darker"
+                >
                   {company.phone}
                 </a>
               </ContactItem>

@@ -32,13 +32,24 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8"
+    >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2 sm:col-span-2">
           <label htmlFor="nome" className="text-sm font-semibold text-foreground">
             Nome
           </label>
-          <input id="nome" name="nome" required autoComplete="name" maxLength={80} placeholder="Seu nome completo" className={fieldClass} />
+          <input
+            id="nome"
+            name="nome"
+            required
+            autoComplete="name"
+            maxLength={80}
+            placeholder="Seu nome completo"
+            className={fieldClass}
+          />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="telefone" className="text-sm font-semibold text-foreground">
@@ -60,25 +71,42 @@ export function ContactForm() {
           <label htmlFor="email" className="text-sm font-semibold text-foreground">
             E-mail
           </label>
-          <input id="email" name="email" type="email" autoComplete="email" maxLength={120} placeholder="voce@email.com" className={fieldClass} />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            maxLength={120}
+            placeholder="voce@email.com"
+            className={fieldClass}
+          />
         </div>
         <div className="flex flex-col gap-2 sm:col-span-2">
           <label htmlFor="servico" className="text-sm font-semibold text-foreground">
             Tipo de serviço
           </label>
           <div className="relative">
-          <ChevronDown className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
-          <select id="servico" name="servico" required defaultValue="" className={cn(fieldClass, 'appearance-none pr-10')}>
-            <option value="" disabled>
-              Selecione um serviço
-            </option>
-            {services.map((s) => (
-              <option key={s.title} value={s.title}>
-                {s.title}
+            <ChevronDown
+              className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-muted-foreground"
+              aria-hidden="true"
+            />
+            <select
+              id="servico"
+              name="servico"
+              required
+              defaultValue=""
+              className={cn(fieldClass, 'appearance-none pr-10')}
+            >
+              <option value="" disabled>
+                Selecione um serviço
               </option>
-            ))}
-            <option value="Outro">Outro</option>
-          </select>
+              {services.map((s) => (
+                <option key={s.title} value={s.title}>
+                  {s.title}
+                </option>
+              ))}
+              <option value="Outro">Outro</option>
+            </select>
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:col-span-2">
