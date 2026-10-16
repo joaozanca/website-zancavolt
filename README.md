@@ -25,6 +25,29 @@ npm run build      # gera o site estático em out/
 npm start          # serve a pasta out/ em http://localhost:3000
 ```
 
+## Qualidade de código
+
+```bash
+npm run lint           # ESLint (regras do Next.js); reprova erros e avisos
+npm run typecheck      # checagem de tipos do TypeScript
+npm run format:check   # confere a formatação (Prettier)
+npm run format         # corrige a formatação automaticamente
+```
+
+O `npm run build` também reprova erros de TypeScript.
+
+### Padrão de commit
+
+Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/pt-br/) em português, com a chave do Jira como escopo:
+
+```
+tipo(ZV-n): descrição
+```
+
+Exemplos: `feat(ZV-13): envia o formulário para o WhatsApp`, `fix(ZV-12): corrige a tag original`. Tipos mais usados: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `build`, `ci`, `chore`.
+
+O Husky (instalado pelo `npm install`) roda o commitlint a cada commit e bloqueia mensagens fora do padrão.
+
 ## Estrutura
 
 ```
