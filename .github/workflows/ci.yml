@@ -1,0 +1,124 @@
+# Esteira de CI: roda em todo Pull Request para a main e a cada merge na main.
+# Os nomes dos jobs são os status checks exigidos no ruleset da main.
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Um novo push no mesmo PR cancela a execução anterior, que ficou desatualizada.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  qualidade:
+    name: Lint, tipos, formatação e build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Lint (ESLint)
+        run: npm run lint
+
+      - name: Checagem de tipos (TypeScript)
+        run: npm run typecheck
+
+      - name: Formatação (Prettier)
+        run: npm run format:check
+
+      - name: Vulnerabilidades nas dependências do site
+        # Só as dependências que vão para o site publicado; as de desenvolvimento ficam com o Dependabot.
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Build
+        run: npm run build
+
+      - name: Guardar o site gerado
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: out/
+          retention-days: 7
+
+  segredos:
+    name: Segredos no código (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Histórico completo, para analisar todos os commits do PR.
+          fetch-depth: 0
+
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  links:
+    name: Links quebrados
+    needs: qualidade
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: out
+
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          # Confere links internos, imagens, âncoras (#secao) e links externos do site gerado.
+          args: >-
+            --no-progress
+            --root-dir ${{ github.workspace }}/out
+            --include-fragments
+            'out/**/*.html'
+          fail: true
+
+  e2e:
+    name: Testes E2E (Playwright)
+    needs: qualidade
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Recuperar o site gerado
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: out
+
+      - name: Instalar o navegador do Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Rodar os testes
+        # Enquanto o QA não tiver escrito testes, o job passa sem nenhum teste.
+        run: npx playwright test --pass-with-no-tests
+
+      - name: Guardar o relatório dos testes
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-playwright
+          path: playwright-report/
+          retention-days: 14
