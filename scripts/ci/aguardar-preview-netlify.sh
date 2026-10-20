@@ -10,14 +10,15 @@ intervalo=15
 decorrido=0
 
 echo "Aguardando o preview da Netlify do commit $sha..."
-while [ "$decorrido" -lt "$limite_segundos" ]; do
-  status=$(curl -fsSL \
+while [[ "$decorrido" -lt "$limite_segundos" ]]; do
+  # --proto =https: a consulta só pode acontecer por HTTPS, inclusive em redirecionamentos.
+  status=$(curl -fsSL --proto '=https' --proto-redir '=https' \
     -H "Authorization: Bearer $GITHUB_TOKEN" \
     -H "Accept: application/vnd.github+json" \
     "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$sha/status" |
     jq -c '[.statuses[] | select(.context | test("^netlify/.+/deploy-preview$"))][0] // empty')
 
-  if [ -n "$status" ]; then
+  if [[ -n "$status" ]]; then
     estado=$(jq -r '.state' <<<"$status")
     url=$(jq -r '.target_url' <<<"$status")
     case "$estado" in
@@ -28,11 +29,13 @@ while [ "$decorrido" -lt "$limite_segundos" ]; do
         exit 0
         ;;
       failure | error)
-        echo "::error::O deploy do preview na Netlify falhou ($estado): $url"
+        echo "::error::O deploy do preview na Netlify falhou ($estado): $url" >&2
         exit 1
         ;;
+      *)
+        echo "Preview ainda em andamento ($estado)..."
+        ;;
     esac
-    echo "Preview ainda em andamento ($estado)..."
   else
     echo "A Netlify ainda não publicou o status do preview..."
   fi
@@ -41,5 +44,5 @@ while [ "$decorrido" -lt "$limite_segundos" ]; do
   decorrido=$((decorrido + intervalo))
 done
 
-echo "::error::O preview da Netlify não ficou pronto em ${limite_segundos}s."
+echo "::error::O preview da Netlify não ficou pronto em ${limite_segundos}s." >&2
 exit 1
