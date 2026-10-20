@@ -49,3 +49,7 @@ CLAUDE.local.md
 AGENTS.md
 docs/briefing.md
 docs/local/
+
+# Playwright
+blob-report/
+playwright/.cache/
