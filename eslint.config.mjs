@@ -8,5 +8,13 @@ export default defineConfig([
   ...nextTs,
   // Desliga regras de estilo que conflitam com o Prettier (a formatação é dele).
   prettier,
-  globalIgnores(['.next/**', 'out/**', 'node_modules/**', 'next-env.d.ts']),
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'node_modules/**',
+    'next-env.d.ts',
+    'playwright-report/**',
+    'test-results/**',
+    'blob-report/**',
+  ]),
 ])
