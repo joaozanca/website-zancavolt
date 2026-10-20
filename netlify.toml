@@ -1,0 +1,8 @@
+# Configuração da Netlify: gera um preview do site para cada Pull Request.
+[build]
+  command = "npm run build"
+  publish = "out"
+  # Só previews de PR: builds da main (produção) são pulados para não gastar créditos do plano grátis.
+  # A hospedagem de produção será decidida na reta final do projeto.
+  # (O ignore pula o build quando termina com código 0.)
+  ignore = 'if [ "$CONTEXT" = "production" ]; then echo "Produção desativada: só previews de PR."; exit 0; fi; exit 1'
