@@ -10,7 +10,9 @@ Refs: ZV-
 
 ## Como testar
 
-<!-- Ambiente (local ou link do preview), passos e o que observar. -->
+<!-- Link do preview da Netlify (aparece no PR depois do deploy), passos e o que observar. -->
+
+Preview: 
 
 1.
 
