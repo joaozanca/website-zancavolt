@@ -36,6 +36,27 @@ npm run format         # corrige a formatação automaticamente
 
 O `npm run build` também reprova erros de TypeScript.
 
+### Testes automatizados
+
+```bash
+npm run test:e2e       # Playwright (pasta tests/); sobe o build local com npm start
+```
+
+Para rodar contra outro endereço (ex.: um preview), defina `BASE_URL`.
+
+### Esteira de CI
+
+Todo Pull Request para a `main` passa pelo GitHub Actions ([.github/workflows/ci.yml](.github/workflows/ci.yml)):
+
+| Job | O que verifica |
+|---|---|
+| Lint, tipos, formatação e build | ESLint, TypeScript, Prettier, vulnerabilidades das dependências do site (`npm audit`) e build |
+| Segredos no código (gitleaks) | Senhas, tokens e chaves esquecidos no código ou no histórico |
+| Links quebrados | Links internos, imagens, âncoras e links externos do site gerado |
+| Testes E2E (Playwright) | Os testes da pasta `tests/` |
+
+O merge na `main` só é liberado com todos os jobs verdes. O Dependabot abre PRs de atualização de dependências toda segunda-feira.
+
 ### Padrão de commit
 
 Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/pt-br/) em português, com a chave do Jira como escopo:
