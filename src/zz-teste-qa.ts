@@ -1,0 +1,1 @@
+﻿const naoUsada = 1
