@@ -24,6 +24,7 @@ while [ "$decorrido" -lt "$limite_segundos" ]; do
       success)
         echo "Preview pronto: $url"
         echo "BASE_URL=${url%/}" >>"$GITHUB_ENV"
+        echo "Testes E2E rodando contra o preview: $url" >>"${GITHUB_STEP_SUMMARY:-/dev/null}"
         exit 0
         ;;
       failure | error)

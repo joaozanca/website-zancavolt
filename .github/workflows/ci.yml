@@ -100,6 +100,10 @@ jobs:
     name: Testes E2E (Playwright)
     needs: qualidade
     runs-on: ubuntu-latest
+    # Em PR, os testes rodam contra o preview da Netlify; precisa ler o status que a Netlify publica no commit.
+    permissions:
+      contents: read
+      statuses: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -124,7 +128,17 @@ jobs:
       - name: Instalar o navegador do Playwright
         run: npm run test:e2e:install
 
+      - name: Aguardar o preview da Netlify
+        # Só em PR: na main não há preview (a produção está desativada), e os testes rodam contra o build local.
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Commit da branch do PR (é nele que a Netlify publica o status do preview).
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: bash scripts/ci/aguardar-preview-netlify.sh "$SHA"
+
       - name: Rodar os testes
+        # BASE_URL vem do passo anterior (preview do PR); sem ela, o Playwright sobe o build local.
         # Enquanto o QA não tiver escrito testes, o job passa sem nenhum teste.
         run: npm run test:e2e -- --pass-with-no-tests
 
