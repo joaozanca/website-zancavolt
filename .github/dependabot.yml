@@ -1,0 +1,28 @@
+# Atualizações automáticas de dependências: o Dependabot abre PRs que passam pela CI e pelo QA.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '08:00'
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore(deps)
+    groups:
+      # Agrupa as atualizações pequenas para não abrir um PR por pacote.
+      dev-menores:
+        dependency-type: development
+        update-types: [minor, patch]
+      producao-menores:
+        dependency-type: production
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: ci(deps)
