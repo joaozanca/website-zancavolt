@@ -8,7 +8,6 @@ import { Process } from '@/components/sections/process'
 import { Services } from '@/components/sections/services'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
-import { Testimonials } from '@/components/sections/testimonials'
 import { WhatsAppFloat } from '@/components/layout/whatsapp-float'
 
 export default function Page() {
@@ -22,7 +21,7 @@ export default function Page() {
         <About />
         <Process />
         <Portfolio />
-        <Testimonials />
+        {/* Depoimentos ocultos até haver avaliações reais no Google (ZV-16); o componente continua em sections/testimonials.tsx. */}
         <CtaBand />
         <Contact />
       </main>
