@@ -16,13 +16,13 @@ Visual industrial e confiável: superfícies escuras (grafite/azul-marinho) cont
 |---|---|---|
 | `background` / `foreground` | `#ffffff` / `#0f172a` | Fundo e texto principal das áreas claras |
 | `card` | `#ffffff` | Fundo dos cartões |
-| `primary` / `primary-foreground` | `#facc15` / `#0f172a` | Amarelo da marca: botões principais e destaques |
+| `primary` / `primary-foreground` | `#ffd400` / `#0f172a` | Amarelo da marca (o mesmo da logo): botões principais e destaques. Contraste do texto: 12,47:1 |
 | `primary-light` | yellow-300 do Tailwind | Hover do botão amarelo e ícones decorativos |
 | `primary-dark` | yellow-600 do Tailwind | Texto amarelo sobre fundo claro (rótulos de seção) |
 | `primary-darker` | yellow-700 do Tailwind | Hover de links sobre fundo claro |
 | `muted` / `muted-foreground` | `#f1f5f9` / `#475569` | Fundos neutros e texto secundário |
 | `success` | green-700 do Tailwind | Mensagens de sucesso (formulário) |
-| `border` / `input` / `ring` | `#e2e8f0` / `#cbd5e1` / `#facc15` | Bordas, campos e anel de foco |
+| `border` / `input` / `ring` | `#e2e8f0` / `#cbd5e1` / `#ffd400` | Bordas, campos e anel de foco |
 | `ink` / `ink-foreground` | `#0f172a` / `#f8fafc` | Superfícies escuras (topo, faixas, rodapé) e seu texto |
 | `ink-muted` | `#94a3b8` | Texto discreto sobre fundo escuro |
 | `ink-soft` | slate-300 do Tailwind | Texto de apoio sobre fundo escuro |
@@ -30,6 +30,7 @@ Visual industrial e confiável: superfícies escuras (grafite/azul-marinho) cont
 | `ink-hover` | slate-800 do Tailwind | Hover de botões escuros |
 | `ink-shadow` | slate-900 do Tailwind | Cor das sombras (usada com opacidade, ex.: `shadow-ink-shadow/10`) |
 | `overlay` | branco | Realce de hover sobre fundo escuro (usado com opacidade, ex.: `bg-overlay/10`) |
+| `logo-mark` | `#000000` | Raio da logo (preto puro, como no arquivo oficial) |
 | `whatsapp` / `whatsapp-foreground` | `#25d366` / branco | Botão flutuante do WhatsApp (cor oficial da marca) |
 
 Cada token vira a variável `--color-<token>` em `globals.css`, e o Tailwind gera as classes a partir dela: `bg-<token>`, `text-<token>`, `border-<token>`, `shadow-<token>` etc. Um número depois da barra é a opacidade: `bg-overlay/10` = cor `overlay` a 10%.
@@ -37,6 +38,12 @@ Cada token vira a variável `--color-<token>` em `globals.css`, e o Tailwind ger
 Esta tabela lista **todos** os tokens de cor do projeto. Token sem uso é removido (não deixe "reservas").
 
 Os tokens marcados como "do Tailwind" apontam para a paleta padrão do Tailwind 4, para manter exatamente as cores do layout original.
+
+### Logo
+
+- Arquivo oficial: `public/icon.svg` (quadrado amarelo `#ffd400` com cantos arredondados e o Z em forma de raio em preto). O componente `Logo` desenha o mesmo SVG ao lado do nome.
+- Ícones derivados: `public/icon-32x32.png` (aba do navegador) e `public/apple-icon.png` (atalho no celular, 180 px, sem cantos arredondados — o sistema arredonda).
+- Não distorcer, não trocar as cores e manter o nome "ZancaVolt" ao lado sempre que houver espaço.
 
 ### Tipografia
 
@@ -73,3 +80,4 @@ Padrão do Tailwind: `sm` 40rem (640px) · `md` 48rem (768px) · `lg` 64rem (102
 | 2026-10-16 | Cores fixas dos componentes viraram tokens com os mesmos valores (ZV-2) | Trocar uma cor em um só lugar, sem mudar o visual atual |
 | 2026-10-16 | Removidos o Button do shadcn e as animações do tw-animate-css (ZV-2) | Não eram usados por nenhuma tela |
 | 2026-10-16 | Removidos os tokens sem uso popover, secondary, accent, destructive, card-foreground e os raios sm/3xl/4xl (ZV-2, reteste) | Achado do QA: sobras do shadcn que nenhum componente usava |
+| 2026-10-21 | Amarelo principal `#facc15` → `#ffd400` e logo oficial aplicada (ZV-17) | Usar a cor e o desenho da marca; o mesmo amarelo da logo nos botões evita dois amarelos lado a lado |
