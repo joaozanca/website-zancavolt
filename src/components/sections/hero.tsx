@@ -22,9 +22,12 @@ export function Hero() {
 
       <div className="mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl flex-col justify-center px-5 py-20 md:px-8 md:py-28">
         <div className="flex max-w-2xl flex-col gap-6">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-            <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-            Elétrica • Segurança eletrônica • Ar comprimido
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-wide text-primary uppercase">
+            {/* Z da logo (mesmo desenho de public/icon.svg), sem o quadrado de fundo. */}
+            <svg viewBox="11 11 42 42" className="size-3.5 shrink-0" fill="currentColor" aria-hidden="true">
+              <path d="M11 11 H53 V20 L36 28 H48 L26 44 H53 V53 H11 V44 L26 36 H14 L34 20 H11 Z" />
+            </svg>
+            Técnica • Segurança • Precisão
           </span>
 
           <h1
