@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     'cerca elétrica',
     'ar comprimido PPR',
     'manutenção elétrica',
-    'NR-10',
   ],
   openGraph: {
     title: 'ZancaVolt | Soluções elétricas e de segurança',

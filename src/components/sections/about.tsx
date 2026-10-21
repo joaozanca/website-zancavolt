@@ -2,17 +2,7 @@ import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/section-heading'
 
-const stats = [
-  { value: '+500', label: 'projetos entregues' },
-  { value: '+10', label: 'anos de experiência' },
-  { value: '100%', label: 'clientes atendidos' },
-]
-
-const commitments = [
-  'Equipe capacitada e certificada em NR-10',
-  'Materiais de primeira linha e garantia do serviço',
-  'Pontualidade, organização e limpeza na obra',
-]
+const commitments = ['Materiais de primeira linha e garantia do serviço', 'Pontualidade, organização e limpeza na obra']
 
 export function About() {
   return (
@@ -29,8 +19,8 @@ export function About() {
             />
           </div>
           <div className="absolute -right-2 -bottom-6 rounded-xl bg-primary p-5 text-primary-foreground shadow-lg sm:right-6">
-            <p className="font-heading text-3xl font-extrabold">NR-10</p>
-            <p className="text-sm font-medium">Segurança em primeiro lugar</p>
+            <p className="font-heading text-3xl font-extrabold">+30 anos</p>
+            <p className="text-sm font-medium">de experiência em elétrica</p>
           </div>
         </div>
 
@@ -53,15 +43,6 @@ export function About() {
               </li>
             ))}
           </ul>
-
-          <dl className="grid grid-cols-3 gap-4 border-t border-border pt-8">
-            {stats.map((s) => (
-              <div key={s.label} className="flex flex-col gap-1">
-                <dt className="order-2 text-xs text-muted-foreground sm:text-sm">{s.label}</dt>
-                <dd className="order-1 font-heading text-3xl font-extrabold text-foreground md:text-4xl">{s.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>
