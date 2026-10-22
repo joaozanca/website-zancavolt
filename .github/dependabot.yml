@@ -11,6 +11,16 @@ updates:
     open-pull-requests-limit: 5
     commit-message:
       prefix: chore(deps)
+    ignore:
+      # Os tipos do Node acompanham o Node do projeto (.nvmrc = 24). Subir junto com o Node.
+      - dependency-name: '@types/node'
+        versions: ['>=25']
+      # Versões grandes adiadas na triagem da ZV-13: o TypeScript 7 quebra o build e o ESLint 10
+      # ainda não é suportado pelos plugins do eslint-config-next. Reavaliar em card próprio.
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
+      - dependency-name: eslint
+        update-types: ['version-update:semver-major']
     groups:
       # Agrupa as atualizações pequenas para não abrir um PR por pacote.
       dev-menores:
