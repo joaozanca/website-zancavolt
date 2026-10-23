@@ -1,14 +1,27 @@
-import { Cable, CircuitBoard, Cctv, Gauge, Siren, Wrench, Zap, type LucideIcon } from 'lucide-react'
+import {
+  Cable,
+  CircuitBoard,
+  Cctv,
+  Clock,
+  FileCheck,
+  Gauge,
+  HardHat,
+  ShieldCheck,
+  Siren,
+  Wrench,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react'
 
 export const company = {
   name: 'ZancaVolt',
-  phone: '(19) 99999-9999',
-  phoneHref: 'tel:+5519999999999',
-  whatsappNumber: '5519999999999',
-  email: 'contato@zancavolt.com.br',
-  region: 'Campinas - SP e região',
-  mapQuery: 'Campinas, SP',
-  cnpj: '00.000.000/0001-00',
+  phone: '(41) 98714-7142',
+  phoneHref: 'tel:+5541987147142',
+  whatsappNumber: '5541987147142',
+  email: 'zancavolt@gmail.com',
+  region: 'São José dos Pinhais, Curitiba e Região Metropolitana - PR',
+  // Vazio enquanto a empresa não tem CNPJ: o rodapé só mostra a linha quando houver número.
+  cnpj: '',
   social: {
     instagram: 'https://instagram.com/',
     facebook: 'https://facebook.com/',
@@ -20,6 +33,14 @@ export const company = {
 export function whatsappLink(message = 'Olá! Vim pelo site da ZancaVolt e gostaria de solicitar um orçamento.') {
   return `https://api.whatsapp.com/send?phone=${company.whatsappNumber}&text=${encodeURIComponent(message)}`
 }
+
+// Diferenciais: aparecem na faixa abaixo do topo e no cartão da seção Contato.
+export const features = [
+  { icon: Clock, title: 'Atendimento rápido', text: 'Retorno ágil e agendamento flexível.' },
+  { icon: HardHat, title: 'Profissionais qualificados', text: 'Equipe treinada e experiente.' },
+  { icon: ShieldCheck, title: 'Normas de segurança', text: 'Trabalho seguro e dentro da lei.' },
+  { icon: FileCheck, title: 'Orçamento sem compromisso', text: 'Proposta clara e transparente.' },
+]
 
 export const navItems = [
   { label: 'Início', href: '#inicio' },
@@ -55,8 +76,7 @@ export const services: Service[] = [
   },
   {
     title: 'Instalação de alarmes',
-    description:
-      'Sistemas de alarme monitorados com sensores, sirenes e acionamento remoto para proteger seu patrimônio.',
+    description: 'Sistemas de alarme com sensores, sirenes e acionamento remoto para proteger seu patrimônio.',
     icon: Siren,
   },
   {
