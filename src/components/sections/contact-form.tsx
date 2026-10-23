@@ -1,46 +1,116 @@
 'use client'
 
 import { CheckCircle2, ChevronDown, Send } from 'lucide-react'
-import { useState, type FormEvent } from 'react'
+import { useState, type FormEvent, type ReactNode } from 'react'
 import { actionVariants } from '@/components/ui/action-link'
 import { services, whatsappLink } from '@/config/site'
+import { buildQuoteMessage, validateQuote, type QuoteErrors, type QuoteFields } from '@/lib/quote-message'
 import { cn } from '@/lib/utils'
 
 const fieldClass =
-  'h-12 w-full rounded-lg border border-input bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-colors focus:border-ink focus:ring-3 focus:ring-primary/40'
+  'h-12 w-full rounded-lg border border-input bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-colors focus:border-ink focus:ring-3 focus:ring-primary/40 aria-invalid:border-danger'
+
+// Ordem dos campos na tela: o foco vai para o primeiro campo com erro.
+const fieldOrder: (keyof QuoteFields)[] = ['nome', 'telefone', 'email', 'cidade', 'servico', 'mensagem']
+
+function Field({
+  name,
+  label,
+  optional,
+  error,
+  className,
+  children,
+}: {
+  name: keyof QuoteFields
+  label: string
+  optional?: boolean
+  error?: string
+  className?: string
+  children: ReactNode
+}) {
+  return (
+    <div className={cn('flex flex-col gap-2', className)}>
+      <label htmlFor={name} className="text-sm font-semibold text-foreground">
+        {label}
+        {optional && <span className="font-normal text-muted-foreground"> (opcional)</span>}
+      </label>
+      {children}
+      {error && (
+        <p id={`${name}-erro`} className="text-sm text-danger">
+          {error}
+        </p>
+      )}
+    </div>
+  )
+}
 
 export function ContactForm() {
   const [sent, setSent] = useState(false)
+  const [errors, setErrors] = useState<QuoteErrors>({})
+
+  function readFields(form: HTMLFormElement): QuoteFields {
+    const data = new FormData(form)
+    const get = (k: keyof QuoteFields) => String(data.get(k) ?? '').trim()
+    return {
+      nome: get('nome'),
+      telefone: get('telefone'),
+      email: get('email'),
+      cidade: get('cidade'),
+      servico: get('servico'),
+      mensagem: get('mensagem'),
+    }
+  }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const data = new FormData(e.currentTarget)
-    const get = (k: string) => String(data.get(k) ?? '').trim()
-    const message = [
-      'Olá! Gostaria de solicitar um orçamento.',
-      `Nome: ${get('nome')}`,
-      `Telefone: ${get('telefone')}`,
-      get('email') && `E-mail: ${get('email')}`,
-      `Serviço: ${get('servico')}`,
-      get('mensagem') && `Mensagem: ${get('mensagem')}`,
-    ]
-      .filter(Boolean)
-      .join('\n')
-    window.open(whatsappLink(message), '_blank', 'noopener,noreferrer')
+    const form = e.currentTarget
+    const fields = readFields(form)
+    const found = validateQuote(fields)
+    setErrors(found)
+
+    const firstInvalid = fieldOrder.find((k) => found[k])
+    if (firstInvalid) {
+      setSent(false)
+      // Centraliza o campo para ele não ficar escondido atrás do topo fixo.
+      const field = form.querySelector<HTMLElement>(`#${firstInvalid}`)
+      field?.focus({ preventScroll: true })
+      field?.scrollIntoView({ block: 'center', behavior: 'smooth' })
+      return
+    }
+
+    const url = whatsappLink(buildQuoteMessage(fields))
+    // Sem a opção "noopener" porque com ela o window.open sempre retorna null e não daria para
+    // saber se a aba abriu. O opener é desligado à mão; se o navegador bloquear a aba nova,
+    // o WhatsApp abre na própria aba.
+    const tab = window.open(url, '_blank')
+    if (tab) tab.opener = null
+    else window.location.href = url
     setSent(true)
-    e.currentTarget.reset()
   }
+
+  // Ao corrigir um campo, a mensagem de erro dele some.
+  function handleInput(e: FormEvent<HTMLFormElement>) {
+    const name = (e.target as HTMLInputElement).name as keyof QuoteFields
+    if (!errors[name]) return
+    setErrors((prev) => {
+      const next = { ...prev }
+      delete next[name]
+      return next
+    })
+  }
+
+  const invalid = (name: keyof QuoteFields) =>
+    errors[name] ? { 'aria-invalid': true, 'aria-describedby': `${name}-erro` } : {}
 
   return (
     <form
+      noValidate
       onSubmit={handleSubmit}
+      onInput={handleInput}
       className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8"
     >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div className="flex flex-col gap-2 sm:col-span-2">
-          <label htmlFor="nome" className="text-sm font-semibold text-foreground">
-            Nome
-          </label>
+        <Field name="nome" label="Nome" error={errors.nome} className="sm:col-span-2">
           <input
             id="nome"
             name="nome"
@@ -49,12 +119,10 @@ export function ContactForm() {
             maxLength={80}
             placeholder="Seu nome completo"
             className={fieldClass}
+            {...invalid('nome')}
           />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="telefone" className="text-sm font-semibold text-foreground">
-            Telefone / WhatsApp
-          </label>
+        </Field>
+        <Field name="telefone" label="Telefone / WhatsApp" error={errors.telefone}>
           <input
             id="telefone"
             name="telefone"
@@ -62,15 +130,13 @@ export function ContactForm() {
             required
             autoComplete="tel"
             inputMode="tel"
-            pattern="[0-9()+\-\s]{8,20}"
+            maxLength={20}
             placeholder="(00) 00000-0000"
             className={fieldClass}
+            {...invalid('telefone')}
           />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="text-sm font-semibold text-foreground">
-            E-mail
-          </label>
+        </Field>
+        <Field name="email" label="E-mail" optional error={errors.email}>
           <input
             id="email"
             name="email"
@@ -79,12 +145,22 @@ export function ContactForm() {
             maxLength={120}
             placeholder="voce@email.com"
             className={fieldClass}
+            {...invalid('email')}
           />
-        </div>
-        <div className="flex flex-col gap-2 sm:col-span-2">
-          <label htmlFor="servico" className="text-sm font-semibold text-foreground">
-            Tipo de serviço
-          </label>
+        </Field>
+        <Field name="cidade" label="Cidade" error={errors.cidade} className="sm:col-span-2">
+          <input
+            id="cidade"
+            name="cidade"
+            required
+            autoComplete="address-level2"
+            maxLength={60}
+            placeholder="Ex.: São José dos Pinhais"
+            className={fieldClass}
+            {...invalid('cidade')}
+          />
+        </Field>
+        <Field name="servico" label="Tipo de serviço" error={errors.servico} className="sm:col-span-2">
           <div className="relative">
             <ChevronDown
               className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-muted-foreground"
@@ -96,6 +172,7 @@ export function ContactForm() {
               required
               defaultValue=""
               className={cn(fieldClass, 'appearance-none pr-10')}
+              {...invalid('servico')}
             >
               <option value="" disabled>
                 Selecione um serviço
@@ -108,11 +185,8 @@ export function ContactForm() {
               <option value="Outro">Outro</option>
             </select>
           </div>
-        </div>
-        <div className="flex flex-col gap-2 sm:col-span-2">
-          <label htmlFor="mensagem" className="text-sm font-semibold text-foreground">
-            Mensagem
-          </label>
+        </Field>
+        <Field name="mensagem" label="Mensagem" optional className="sm:col-span-2">
           <textarea
             id="mensagem"
             name="mensagem"
@@ -121,7 +195,7 @@ export function ContactForm() {
             placeholder="Descreva brevemente o que você precisa"
             className={cn(fieldClass, 'h-auto resize-none py-3')}
           />
-        </div>
+        </Field>
       </div>
 
       <button type="submit" className={cn(actionVariants({ size: 'lg' }), 'w-full')}>

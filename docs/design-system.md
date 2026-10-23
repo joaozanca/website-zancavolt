@@ -22,6 +22,7 @@ Visual industrial e confiável: superfícies escuras (grafite/azul-marinho) cont
 | `primary-darker` | yellow-700 do Tailwind | Hover de links sobre fundo claro |
 | `muted` / `muted-foreground` | `#f1f5f9` / `#475569` | Fundos neutros e texto secundário |
 | `success` | green-700 do Tailwind | Mensagens de sucesso (formulário) |
+| `danger` | red-700 do Tailwind (#B91C1C, 6,5:1 no branco) | Mensagens de erro dos campos do formulário |
 | `border` / `input` / `ring` | `#e2e8f0` / `#cbd5e1` / `#ffd400` | Bordas, campos e anel de foco |
 | `ink` / `ink-foreground` | `#0f172a` / `#f8fafc` | Superfícies escuras (topo, faixas, rodapé) e seu texto |
 | `ink-muted` | `#94a3b8` | Texto discreto sobre fundo escuro |

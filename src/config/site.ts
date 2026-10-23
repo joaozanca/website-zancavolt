@@ -16,7 +16,7 @@ export const company = {
   },
 }
 
-export function whatsappLink(message = 'Olá! Gostaria de solicitar um orçamento com a ZancaVolt.') {
+export function whatsappLink(message = 'Olá! Vim pelo site da ZancaVolt e gostaria de solicitar um orçamento.') {
   return `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(message)}`
 }
 
