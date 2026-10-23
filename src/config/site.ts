@@ -16,8 +16,9 @@ export const company = {
   },
 }
 
-export function whatsappLink(message = 'Olá! Gostaria de solicitar um orçamento com a ZancaVolt.') {
-  return `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(message)}`
+// Usa o api.whatsapp.com direto: o redirecionamento do wa.me troca emojis por "�" (ZV-23).
+export function whatsappLink(message = 'Olá! Vim pelo site da ZancaVolt e gostaria de solicitar um orçamento.') {
+  return `https://api.whatsapp.com/send?phone=${company.whatsappNumber}&text=${encodeURIComponent(message)}`
 }
 
 export const navItems = [

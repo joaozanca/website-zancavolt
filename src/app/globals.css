@@ -28,6 +28,7 @@
   --color-ink-shadow: var(--color-slate-900);
   --color-overlay: var(--color-white);
   --color-success: var(--color-green-700);
+  --color-danger: var(--color-red-700);
   --color-logo-mark: var(--logo-mark);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-foreground: var(--color-white);
