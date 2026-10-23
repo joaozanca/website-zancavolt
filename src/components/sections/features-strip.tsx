@@ -1,11 +1,4 @@
-import { Clock, FileCheck, HardHat, ShieldCheck } from 'lucide-react'
-
-const features = [
-  { icon: Clock, title: 'Atendimento rápido', text: 'Retorno ágil e agendamento flexível.' },
-  { icon: HardHat, title: 'Profissionais qualificados', text: 'Equipe treinada e experiente.' },
-  { icon: ShieldCheck, title: 'Normas de segurança', text: 'Trabalho seguro e dentro da lei.' },
-  { icon: FileCheck, title: 'Orçamento sem compromisso', text: 'Proposta clara e transparente.' },
-]
+import { features } from '@/config/site'
 
 export function FeaturesStrip() {
   return (
