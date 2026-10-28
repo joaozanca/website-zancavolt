@@ -1,9 +1,9 @@
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone, Truck } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { WhatsAppIcon } from '@/components/ui/brand-icons'
 import { ContactForm } from '@/components/sections/contact-form'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { company, whatsappLink } from '@/config/site'
+import { company, features, whatsappLink } from '@/config/site'
 
 function ContactItem({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
   return (
@@ -62,14 +62,32 @@ export function Contact() {
               </ContactItem>
             </ul>
 
-            <div className="relative min-h-64 flex-1 overflow-hidden rounded-2xl border border-border">
-              <iframe
-                title={`Mapa da região de atendimento: ${company.region}`}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(company.mapQuery)}&output=embed`}
-                className="absolute inset-0 size-full grayscale-[30%]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            {/* Ocupa o lugar do antigo mapa: a empresa não tem endereço físico, atende no local do cliente. */}
+            <div className="flex flex-1 flex-col justify-center gap-6 rounded-2xl bg-ink p-6 text-ink-foreground md:p-8">
+              <div className="flex items-start gap-4">
+                <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-ink-hover text-primary [&_svg]:size-5">
+                  <Truck aria-hidden="true" />
+                </span>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-heading text-lg font-bold">Atendimento no local</h3>
+                  <p className="text-sm text-ink-muted">
+                    Vamos até você: residências, comércios, condomínios e indústrias.
+                  </p>
+                </div>
+              </div>
+              <ul className="flex flex-col gap-5 border-t border-ink-border pt-6">
+                {features.map(({ icon: Icon, title, text }) => (
+                  <li key={title} className="flex items-start gap-4">
+                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-ink-hover text-primary">
+                      <Icon className="size-5" aria-hidden="true" />
+                    </span>
+                    <div className="flex flex-col gap-1">
+                      <h3 className="text-sm font-bold">{title}</h3>
+                      <p className="text-sm text-ink-muted">{text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

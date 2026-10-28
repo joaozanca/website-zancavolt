@@ -84,7 +84,7 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {company.name}. Todos os direitos reservados.
           </p>
-          <p>CNPJ: {company.cnpj}</p>
+          {company.cnpj && <p>CNPJ: {company.cnpj}</p>}
         </div>
       </div>
     </footer>
