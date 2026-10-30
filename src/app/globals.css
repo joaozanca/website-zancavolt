@@ -41,7 +41,8 @@
 }
 
 :root {
-  color-scheme: light;
+  /* Só versão clara: "only" pede aos navegadores (ex.: Samsung Internet em tema escuro) que não escureçam o site sozinhos (ZV-40). */
+  color-scheme: only light;
   --radius: 0.625rem;
 
   --background: #ffffff;

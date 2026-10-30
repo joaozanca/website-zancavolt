@@ -52,6 +52,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: '#0f172a',
+  // Gera <meta name="color-scheme" content="only light">: o site só tem versão clara (ZV-40).
+  colorScheme: 'only light',
   width: 'device-width',
   initialScale: 1,
 }
