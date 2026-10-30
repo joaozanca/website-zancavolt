@@ -18,12 +18,12 @@ Visual industrial e confiável: superfícies escuras (grafite/azul-marinho) cont
 | `card` | `#ffffff` | Fundo dos cartões |
 | `primary` / `primary-foreground` | `#ffd400` / `#0f172a` | Amarelo da marca (o mesmo da logo): botões principais e destaques. Contraste do texto: 12,47:1 |
 | `primary-light` | yellow-300 do Tailwind | Hover do botão amarelo e ícones decorativos |
-| `primary-dark` | yellow-600 do Tailwind | Texto amarelo sobre fundo claro (rótulos de seção) |
+| `primary-dark` | `#a15c00` (âmbar escuro; 5,2:1 no branco, 4,7:1 no cinza-claro — ZV-26) | Texto amarelo sobre fundo claro (rótulos de seção) |
 | `primary-darker` | yellow-700 do Tailwind | Hover de links sobre fundo claro |
 | `muted` / `muted-foreground` | `#f1f5f9` / `#475569` | Fundos neutros e texto secundário |
 | `success` | green-700 do Tailwind | Mensagens de sucesso (formulário) |
 | `danger` | red-700 do Tailwind (#B91C1C, 6,5:1 no branco) | Mensagens de erro dos campos do formulário |
-| `border` / `input` / `ring` | `#e2e8f0` / `#cbd5e1` / `#ffd400` | Bordas, campos e anel de foco |
+| `border` / `input` / `ring` | `#e2e8f0` / `#cbd5e1` / `#b86e00` | Bordas, campos e anel de foco (o anel tem 3:1 ou mais no branco, no cinza-claro e no grafite — ZV-26) |
 | `ink` / `ink-foreground` | `#0f172a` / `#f8fafc` | Superfícies escuras (topo, faixas, rodapé) e seu texto |
 | `ink-muted` | `#94a3b8` | Texto discreto sobre fundo escuro |
 | `ink-soft` | slate-300 do Tailwind | Texto de apoio sobre fundo escuro |
