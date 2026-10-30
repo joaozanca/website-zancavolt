@@ -13,7 +13,7 @@ export function FeaturesStrip() {
               <Icon className="size-5" aria-hidden="true" />
             </span>
             <div className="flex flex-col gap-1">
-              <p className="text-sm font-bold text-foreground">{title}</p>
+              <p className="font-heading text-sm font-bold text-foreground">{title}</p>
               <p className="text-sm text-muted-foreground">{text}</p>
             </div>
           </li>
