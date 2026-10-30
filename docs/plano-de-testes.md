@@ -27,7 +27,7 @@ Este plano descreve como o site da ZancaVolt é testado: o que entra no teste, o
 |---|---|---|
 | **Local** | `http://localhost:3000` (`npm run build` e `npm start`) | Desenvolvimento, conferências rápidas do DEV e a `main` como referência na regressão visual |
 | **Preview do PR** | `https://deploy-preview-N--website-zancavolt.netlify.app` | **Ambiente oficial de teste do QA.** Criado pela Netlify em todo Pull Request |
-| **Produção** | `zancavolt.com.br` (ainda não publicado) | Verificação pós-publicação, quando o site for ao ar |
+| **Produção** | `https://zancavolt.com.br` | Site no ar, publicado automaticamente a cada merge na `main`. Verificação pós-publicação |
 
 A regra é: **o QA testa no preview do PR, antes do merge.** O que vai para a `main` já foi testado.
 
@@ -109,7 +109,7 @@ Dicas que evitam falsos alarmes: a diferença que aparece igual nos dois lados n
 | GitHub | Branches, Pull Requests, revisão e proteção da `main` |
 | GitHub Actions | CI: lint, tipos, formatação, build, gitleaks, links quebrados e E2E |
 | SonarCloud | Qualidade e segurança do código |
-| Netlify | Preview de cada Pull Request |
+| Netlify | Hospedagem do site (produção) e preview de cada Pull Request |
 | Playwright | Testes E2E automatizados |
 | DevTools, Lighthouse e WebAIM | Responsividade, acessibilidade e contraste |
 
@@ -127,4 +127,4 @@ A aprovação de uma entrega é sempre do QA. O DEV pode ajudar a executar teste
 
 - Testes manuais dependem do tempo do QA; a automação E2E cobre só os fluxos de contato por enquanto.
 - O preview da Netlify mostra uma barra própria ("Collaborate") que não existe no site real e pode cobrir conteúdo nos prints.
-- O site ainda não está em produção: a verificação pós-publicação será definida na publicação.
+- A verificação pós-publicação ainda é manual (teste de fumaça automatizado previsto na ZV-37).

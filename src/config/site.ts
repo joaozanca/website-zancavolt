@@ -15,6 +15,7 @@ import {
 
 export const company = {
   name: 'ZancaVolt',
+  siteUrl: 'https://zancavolt.com.br',
   phone: '(41) 98714-7142',
   phoneHref: 'tel:+5541987147142',
   whatsappNumber: '5541987147142',

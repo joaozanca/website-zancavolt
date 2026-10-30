@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
+import { company } from '@/config/site'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
@@ -10,9 +11,10 @@ const montserrat = Montserrat({
   display: 'swap',
 })
 
-// Endereço base dos links das metatags (imagem de compartilhamento). Na Netlify, o preview de cada PR
-// usa o próprio endereço (DEPLOY_PRIME_URL); fora dela, o domínio definitivo.
-const siteUrl = process.env.DEPLOY_PRIME_URL ?? process.env.URL ?? 'https://zancavolt.com.br'
+// Endereço base dos links das metatags (imagem de compartilhamento). A publicação da main (produção)
+// usa o domínio da empresa; o preview de cada PR usa o próprio endereço (DEPLOY_PRIME_URL).
+const siteUrl =
+  process.env.CONTEXT === 'production' ? company.siteUrl : (process.env.DEPLOY_PRIME_URL ?? company.siteUrl)
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
