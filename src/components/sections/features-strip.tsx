@@ -1,11 +1,4 @@
-import { Clock, FileCheck, HardHat, ShieldCheck } from 'lucide-react'
-
-const features = [
-  { icon: Clock, title: 'Atendimento rápido', text: 'Retorno ágil e agendamento flexível.' },
-  { icon: HardHat, title: 'Profissionais qualificados', text: 'Equipe treinada e experiente.' },
-  { icon: ShieldCheck, title: 'Normas de segurança', text: 'Trabalho seguro e dentro da lei.' },
-  { icon: FileCheck, title: 'Orçamento sem compromisso', text: 'Proposta clara e transparente.' },
-]
+import { features } from '@/config/site'
 
 export function FeaturesStrip() {
   return (
@@ -20,7 +13,7 @@ export function FeaturesStrip() {
               <Icon className="size-5" aria-hidden="true" />
             </span>
             <div className="flex flex-col gap-1">
-              <h3 className="text-sm font-bold text-foreground">{title}</h3>
+              <p className="font-heading text-sm font-bold text-foreground">{title}</p>
               <p className="text-sm text-muted-foreground">{text}</p>
             </div>
           </li>

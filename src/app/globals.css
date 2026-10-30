@@ -21,7 +21,8 @@
 
   /* Tons derivados da paleta do Tailwind (valores idênticos aos do layout original) */
   --color-primary-light: var(--color-yellow-300);
-  --color-primary-dark: var(--color-yellow-600);
+  /* Âmbar escuro com contraste AA para texto pequeno: 5,2:1 no branco e 4,7:1 no cinza-claro (ZV-26). */
+  --color-primary-dark: #a15c00;
   --color-primary-darker: var(--color-yellow-700);
   --color-ink-hover: var(--color-slate-800);
   --color-ink-soft: var(--color-slate-300);
@@ -52,7 +53,8 @@
   --muted-foreground: #475569;
   --border: #e2e8f0;
   --input: #cbd5e1;
-  --ring: #ffd400;
+  /* Anel de foco: âmbar com pelo menos 3:1 no branco (4,0), no cinza-claro (3,6) e no grafite (4,5) (ZV-26). */
+  --ring: #b86e00;
 
   /* Superfícies escuras (grafite/azul-marinho) */
   --ink: #0f172a;
@@ -69,7 +71,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
   html {
     scroll-behavior: smooth;
