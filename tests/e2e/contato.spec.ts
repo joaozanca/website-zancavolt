@@ -12,10 +12,11 @@ test('todos os links de WhatsApp usam o número da ZancaVolt', async ({ page }) 
   }
 })
 
-test('a página não mostra os dados de contato antigos', async ({ page }) => {
+test('a página não mostra dados e promessas antigas', async ({ page }) => {
   await page.goto('/')
 
-  const textos = ['(19) 99999-9999', 'contato@zancavolt.com.br', 'Campinas', '00.000.000/0001-00']
+  // "monitoramento": a ZancaVolt só instala, sem monitoramento 24 h (ZV-32).
+  const textos = ['(19) 99999-9999', 'contato@zancavolt.com.br', 'Campinas', '00.000.000/0001-00', 'monitoramento']
 
   for (const texto of textos) {
     await expect(page.locator('body')).not.toContainText(texto)

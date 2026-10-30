@@ -35,7 +35,7 @@ const projects: { src: string; title: string; category: Exclude<Category, 'Todos
   },
   {
     src: '/images/projeto-alarme.png',
-    title: 'Cerca elétrica e monitoramento',
+    title: 'Cerca elétrica e alarme',
     category: 'Segurança',
     place: 'Residência',
   },
