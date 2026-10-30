@@ -55,9 +55,9 @@ Todo Pull Request para a `main` passa pelo GitHub Actions ([.github/workflows/ci
 | Links quebrados | Links internos, imagens, âncoras e links externos do site gerado |
 | Testes E2E (Playwright) | Os testes da pasta `tests/` |
 
-### Preview por Pull Request (Netlify)
+### Publicação e preview por Pull Request (Netlify)
 
-Cada PR ganha um site de teste publicado na Netlify, com o link no próprio PR (`deploy-preview-<número>--website-zancavolt.netlify.app`). É nele que o QA testa e contra ele rodam os testes E2E da CI. A configuração fica em [netlify.toml](netlify.toml). Por enquanto a Netlify gera **só previews**: a publicação de produção será definida na reta final do projeto.
+Cada PR ganha um site de teste publicado na Netlify, com o link no próprio PR (`deploy-preview-<número>--website-zancavolt.netlify.app`). É nele que o QA testa e contra ele rodam os testes E2E da CI. A configuração fica em [netlify.toml](netlify.toml). Cada merge na `main` publica o site automaticamente em [zancavolt.com.br](https://zancavolt.com.br) (produção).
 
 O merge na `main` só é liberado com todos os jobs verdes. O Dependabot abre PRs de atualização de dependências toda segunda-feira.
 
