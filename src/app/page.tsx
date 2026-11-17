@@ -7,6 +7,7 @@ import { Portfolio } from '@/components/sections/portfolio'
 import { Process } from '@/components/sections/process'
 import { ServiceArea } from '@/components/sections/service-area'
 import { Services } from '@/components/sections/services'
+import { Testimonials } from '@/components/sections/testimonials'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
 import { WhatsAppFloat } from '@/components/layout/whatsapp-float'
@@ -24,7 +25,7 @@ export default function Page() {
         <About />
         <Process />
         <Portfolio />
-        {/* Depoimentos ocultos até haver avaliações reais no Google (ZV-16); o componente continua em sections/testimonials.tsx. */}
+        <Testimonials />
         <ServiceArea />
         <CtaBand />
         <Contact />

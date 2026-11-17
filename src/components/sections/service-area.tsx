@@ -9,7 +9,7 @@ const hora = (horario: string) => `${Number(horario.split(':')[0])}h`
 // "eletricista em <cidade>" (SEO local). As cidades e o horário são os mesmos do Perfil da Empresa no Google.
 export function ServiceArea() {
   return (
-    <section id="onde-atendemos" aria-labelledby="onde-atendemos-title" className="bg-muted py-20 md:py-28">
+    <section id="onde-atendemos" aria-labelledby="onde-atendemos-title" className="bg-background py-20 md:py-28">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 md:px-8">
         <SectionHeading
           id="onde-atendemos-title"
@@ -18,7 +18,7 @@ export function ServiceArea() {
           description="Vamos até você: atendemos residências, comércios, condomínios e indústrias em até cerca de 40 km de São José dos Pinhais."
         />
 
-        <ul className="flex flex-wrap justify-center gap-3" aria-label="Cidades atendidas">
+        <ul className="flex flex-wrap justify-center gap-3" aria-label="Onde a ZancaVolt atende">
           {serviceAreas.map((city) => (
             <li
               key={city}
