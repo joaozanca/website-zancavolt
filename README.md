@@ -134,13 +134,14 @@ Numa urgência (ex.: telefone errado no site), corrija pela `main` como sempre e
 
 ### Padrão de commit
 
-Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/pt-br/) em português, com a chave do Jira como escopo:
+Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/pt-br/) em português. Até a Sprint 5 o escopo era a chave do Jira; depois do encerramento do Jira, o escopo é um assunto curto em minúsculas:
 
 ```
-tipo(ZV-n): descrição
+tipo(ZV-n): descrição     # até a Sprint 5
+tipo(assunto): descrição  # depois do encerramento do Jira
 ```
 
-Exemplos: `feat(ZV-13): envia o formulário para o WhatsApp`, `fix(ZV-12): corrige a tag original`. Tipos mais usados: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `build`, `ci`, `chore`.
+Exemplos: `feat(ZV-13): envia o formulário para o WhatsApp`, `feat(seo): cidades atendidas e horário no site`. Tipos mais usados: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `build`, `ci`, `chore`.
 
 O Husky (instalado pelo `npm install`) roda o commitlint a cada commit e bloqueia mensagens fora do padrão.
 
