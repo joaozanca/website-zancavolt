@@ -5,6 +5,7 @@ import { FeaturesStrip } from '@/components/sections/features-strip'
 import { Hero } from '@/components/sections/hero'
 import { Portfolio } from '@/components/sections/portfolio'
 import { Process } from '@/components/sections/process'
+import { ServiceArea } from '@/components/sections/service-area'
 import { Services } from '@/components/sections/services'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
@@ -24,6 +25,7 @@ export default function Page() {
         <Process />
         <Portfolio />
         {/* Depoimentos ocultos até haver avaliações reais no Google (ZV-16); o componente continua em sections/testimonials.tsx. */}
+        <ServiceArea />
         <CtaBand />
         <Contact />
       </main>

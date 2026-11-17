@@ -30,7 +30,7 @@ export function About() {
             align="left"
             eyebrow="Sobre a ZancaVolt"
             title="Experiência técnica a serviço da sua segurança"
-            description="Somos uma empresa especializada em serviços elétricos, segurança eletrônica e redes de ar comprimido. Atuamos com rigor técnico, transparência e compromisso com prazos, atendendo desde residências até grandes plantas industriais."
+            description="Somos uma empresa especializada em serviços elétricos, segurança eletrônica e redes de ar comprimido. Atuamos com rigor técnico, transparência e compromisso com prazos, atendendo desde residências até grandes plantas industriais em São José dos Pinhais, Curitiba e Região Metropolitana."
           />
 
           <ul className="flex flex-col gap-3">

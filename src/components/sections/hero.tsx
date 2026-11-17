@@ -38,8 +38,8 @@ export function Hero() {
           </h1>
 
           <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-            Instalação, montagem e manutenção para indústrias, comércios, condomínios e residências — com equipe
-            qualificada e total respeito às normas de segurança.
+            Eletricista em São José dos Pinhais, Curitiba e região: instalação, montagem e manutenção para indústrias,
+            comércios, condomínios e residências, com equipe qualificada e total respeito às normas de segurança.
           </p>
 
           <div className="flex flex-col gap-3 pt-2 sm:flex-row">
