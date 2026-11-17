@@ -32,11 +32,13 @@ export const metadata: Metadata = {
   // Fora da produção (previews e homologação em main--website-zancavolt.netlify.app), pede aos buscadores
   // para não indexar: a Netlify só manda "X-Robots-Tag: noindex" nos previews, não na homologação (ZV-50).
   robots: emProducao ? undefined : { index: false, follow: false },
-  title: 'ZancaVolt | Elétrica, Segurança Eletrônica e Ar Comprimido',
+  title: 'Eletricista em São José dos Pinhais e Curitiba | ZancaVolt',
   description:
-    'Instalação, montagem e manutenção elétrica, painéis, CFTV, alarmes, cerca elétrica e tubulação de ar comprimido em PPR para indústrias, comércios, condomínios e residências. Solicite seu orçamento.',
+    'Eletricista em São José dos Pinhais, Curitiba e região: instalação e manutenção elétrica, painéis, CFTV, alarmes e ar comprimido. Orçamento pelo WhatsApp.',
   keywords: [
     'eletricista',
+    'eletricista em São José dos Pinhais',
+    'eletricista em Curitiba',
     'instalação elétrica',
     'painéis elétricos',
     'CFTV',
@@ -47,7 +49,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'ZancaVolt | Soluções elétricas e de segurança',
-    description: 'Qualidade e precisão em elétrica, segurança eletrônica e ar comprimido.',
+    description:
+      'Eletricista em São José dos Pinhais, Curitiba e região: elétrica, segurança eletrônica e ar comprimido.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'ZancaVolt: soluções elétricas e de segurança' }],
     locale: 'pt_BR',
     type: 'website',

@@ -32,7 +32,36 @@ export const company = {
     facebook: 'https://www.facebook.com/zancavolt',
     linkedin: 'https://www.linkedin.com/company/zancavolt',
   },
+  // Perfil da Empresa no Google (avaliações e mapa), o mesmo link do botão "Compartilhar" do perfil.
+  googleProfile: 'https://share.google/efOjAi4Je4BLcZEjw',
+  // Horário de atendimento, igual ao do Perfil da Empresa no Google. Domingo fechado.
+  hours: [
+    {
+      label: 'Segunda a sexta',
+      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '18:00',
+    },
+    { label: 'Sábado', days: ['Saturday'], opens: '09:00', closes: '18:00' },
+  ],
 }
+
+// Cidades atendidas: as mesmas 13 do Perfil da Empresa no Google (até cerca de 40 km da base).
+export const serviceAreas = [
+  'São José dos Pinhais',
+  'Curitiba',
+  'Pinhais',
+  'Colombo',
+  'Araucária',
+  'Fazenda Rio Grande',
+  'Piraquara',
+  'Campo Largo',
+  'Almirante Tamandaré',
+  'Quatro Barras',
+  'Campina Grande do Sul',
+  'Campo Magro',
+  'Mandirituba',
+]
 
 // Usa o api.whatsapp.com direto: o redirecionamento do wa.me troca emojis por "�" (ZV-23).
 export function whatsappLink(message = 'Olá! Vim pelo site da ZancaVolt e gostaria de solicitar um orçamento.') {

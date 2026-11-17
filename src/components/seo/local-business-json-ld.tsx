@@ -1,7 +1,7 @@
-import { company, services } from '@/config/site'
+import { company, serviceAreas, services } from '@/config/site'
 
 // Dados estruturados de empresa local (schema.org) para o Google entender quem é a ZancaVolt,
-// onde atende e quais serviços oferece (ZV-34).
+// onde atende, quando atende e quais serviços oferece (ZV-34; SEO local em 17/11/2026).
 const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'Electrician',
@@ -19,10 +19,18 @@ const localBusiness = {
     addressCountry: 'BR',
   },
   areaServed: [
-    { '@type': 'City', name: 'São José dos Pinhais' },
-    { '@type': 'City', name: 'Curitiba' },
+    ...serviceAreas.map((city) => ({ '@type': 'City', name: `${city} - PR` })),
     { '@type': 'AdministrativeArea', name: 'Região Metropolitana de Curitiba' },
   ],
+  openingHoursSpecification: company.hours.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  hasMap: company.googleProfile,
+  // Perfis da mesma empresa em outros sites: ajudam o Google a ligar o site ao Perfil da Empresa.
+  sameAs: [company.googleProfile, ...Object.values(company.social).filter(Boolean)],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Serviços',
