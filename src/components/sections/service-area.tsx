@@ -13,7 +13,7 @@ export function ServiceArea() {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="flex flex-col gap-8 rounded-2xl bg-ink p-6 text-ink-foreground md:p-10">
           <div className="flex items-start gap-4">
-            <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground [&_svg]:size-5">
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-ink-hover text-primary [&_svg]:size-5">
               <Wrench aria-hidden="true" />
             </span>
             <div className="flex flex-col gap-2">
