@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   robots: emProducao ? undefined : { index: false, follow: false },
   title: 'Eletricista em São José dos Pinhais e Curitiba | ZancaVolt',
   description:
-    'Eletricista em São José dos Pinhais, Curitiba e região: instalação e manutenção elétrica, painéis, CFTV, alarmes, cerca elétrica e ar comprimido em PPR. Orçamento sem compromisso pelo WhatsApp.',
+    'Eletricista em São José dos Pinhais, Curitiba e região: instalação e manutenção elétrica, painéis, CFTV, alarmes e ar comprimido. Orçamento pelo WhatsApp.',
   keywords: [
     'eletricista',
     'eletricista em São José dos Pinhais',
