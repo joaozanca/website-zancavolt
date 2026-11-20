@@ -49,6 +49,8 @@ CLAUDE.local.md
 AGENTS.md
 docs/briefing.md
 docs/local/
+# Lista das skills instaladas (gerada pelo instalador de skills)
+skills-lock.json
 
 # Playwright
 blob-report/

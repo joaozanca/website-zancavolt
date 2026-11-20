@@ -127,8 +127,11 @@ Para publicar (normalmente no fim da sprint, junto com a release):
 
 1. Abra um PR da `main` para a `producao` (título: `release: vX.Y.Z`).
 2. Espere a CI verde e confira o preview do PR.
-3. Faça o merge com **Create a merge commit** (não use squash: a `producao` precisa ter os mesmos commits da `main`).
+3. Faça o merge com **Create a merge commit**, que no GitHub aparece no botão verde **Merge pull request** (não use squash: a `producao` precisa ter os mesmos commits da `main`).
 4. O workflow "Fumaça em produção" espera o commit entrar no ar e roda os testes de fumaça contra o domínio.
+5. Crie a tag e a release `vX.Y.Z` com a `producao` como alvo.
+
+Depois do merge, o GitHub mostra o aviso "producao had recent pushes" oferecendo um PR da `producao` para a `main`. Ele não é necessário (não tem mudanças, só o registro do merge): ignore o aviso ou feche o PR sem fazer merge.
 
 Numa urgência (ex.: telefone errado no site), corrija pela `main` como sempre e faça o mesmo PR para a `producao` logo em seguida.
 
