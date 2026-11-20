@@ -1,8 +1,50 @@
-# ZancaVolt — Site institucional
+# ZancaVolt — Site institucional com processo completo de QA
 
-Site da **ZancaVolt**, empresa de serviços elétricos, segurança eletrônica e ar comprimido que atende **São José dos Pinhais, Curitiba e Região Metropolitana (PR)**.
+[![CI](https://github.com/joaozanca/website-zancavolt/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/joaozanca/website-zancavolt/actions/workflows/ci.yml)
+[![Fumaça em produção](https://github.com/joaozanca/website-zancavolt/actions/workflows/fumaca.yml/badge.svg?branch=producao)](https://github.com/joaozanca/website-zancavolt/actions/workflows/fumaca.yml)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joaozanca_website-mycompany&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=joaozanca_website-mycompany)
 
-> Projeto em construção, desenvolvido em sprints com processo completo de QA.
+Site real da **ZancaVolt**, empresa de serviços elétricos, segurança eletrônica e ar comprimido de **São José dos Pinhais, Curitiba e Região Metropolitana (PR)**, no ar em **[zancavolt.com.br](https://zancavolt.com.br)**.
+
+O projeto foi conduzido como um time de verdade, em **6 sprints com Scrum, Jira e Zephyr Scale**, e é o meu projeto de portfólio como **QA**: planejei e executei os testes, registrei bugs, aprovei ou reprovei cada entrega e defini os testes automatizados que protegem o site em todo Pull Request.
+
+📄 **[Plano de Testes](docs/plano-de-testes.md)** · 📝 **[Estudo de caso](docs/estudo-de-caso.md)** · 🌐 **[Site no ar](https://zancavolt.com.br)** · 👤 **[João Vitor Zanca no LinkedIn](https://www.linkedin.com/in/joaovitorzanca-qa/)**
+
+## Papéis
+
+| Papel | Quem | O que fez |
+|---|---|---|
+| **QA** | [João Vitor Zanca](https://www.linkedin.com/in/joaovitorzanca-qa/) | Planejamento e estratégia de testes, casos e execuções no Zephyr, testes em aparelhos reais, bugs, regressão, aprovação de cada entrega e definição dos cenários automatizados |
+| **PO / dono do site** | João Vitor Zanca | Prioridades, critérios de aceite e decisões de produto e de visual |
+| **DEV** | IA (Claude) | Código do site e dos testes automatizados, escrito a pedido do QA, a partir dos cenários que ele definiu |
+
+## O projeto em números
+
+| | |
+|---|---|
+| Sprints | 6 (Sprint 0 a 5), de 15/10 a 16/11/2026 |
+| Pull Requests | Mais de 40, todos com CI, preview e aprovação do QA |
+| Testes automatizados | **23 em todo PR** (4 E2E, 8 de acessibilidade, 3 de fumaça e 8 de regressão visual) + 3 de fumaça contra o site no ar a cada publicação |
+| Casos de teste manuais | **96** no Zephyr Scale (ZV-T1 a ZV-T96), em 6 ciclos (um por sprint) |
+| Bugs registrados | 4 no Jira, todos com decisão registrada; outros achados corrigidos no próprio card |
+| Performance no celular | Lighthouse **93** (era 75) |
+| Segurança | Nota **A+** no securityheaders.com |
+
+## Destaques de QA
+
+- **A regressão visual automática pegou a mudança certa:** na troca de fotos do portfólio, o teste apontou exatamente os 5 cartões alterados, e as referências só foram aprovadas depois da conferência do Diff.
+- **Um teste que deixava passar defeito foi corrigido:** com tolerância de 0,1%, a logo com o Z em azul passava no teste visual; a tolerância virou no máximo 50 pixels.
+- **Aparelho real achou o que o simulador não mostra:** o selo da hospedagem cobria o botão do WhatsApp no celular, e o Samsung Internet escurecia o site no modo escuro.
+- **Acessibilidade automática achou problema real:** o axe mostrou o botão flutuante fora das regiões da página para leitores de tela.
+- **Teste instável investigado antes de ser mexido:** 20 execuções seguidas mostraram que a falha era da hospedagem, não do site nem do teste.
+- **Bug tratado na causa:** o build que falhava ao baixar a fonte do Google passou a usar fontes guardadas no próprio site.
+
+## Como o trabalho foi organizado
+
+- **Jira:** sprints de uma semana, cards com critérios de aceite, bugs vinculados e revisão no fim de cada sprint.
+- **Zephyr Scale:** casos de teste por card, um ciclo por sprint, execuções com evidências e reteste dos bugs.
+- **GitHub:** cada card em uma branch e um Pull Request com a CI verde; merge só depois da aprovação do QA.
+- **Ambientes:** preview por PR (onde o QA testa), homologação da `main` e produção publicada por release.
 
 ## Tecnologias
 
@@ -67,19 +109,39 @@ Todo Pull Request para a `main` passa pelo GitHub Actions ([.github/workflows/ci
 
 ### Publicação e preview por Pull Request (Netlify)
 
-Cada PR ganha um site de teste publicado na Netlify, com o link no próprio PR (`deploy-preview-<número>--website-zancavolt.netlify.app`). É nele que o QA testa e contra ele rodam os testes E2E da CI. A configuração fica em [netlify.toml](netlify.toml). Cada merge na `main` publica o site automaticamente em [zancavolt.com.br](https://zancavolt.com.br) (produção).
+Cada PR ganha um site de teste publicado na Netlify, com o link no próprio PR (`deploy-preview-<número>--website-zancavolt.netlify.app`). É nele que o QA testa e contra ele rodam os testes E2E da CI. A configuração fica em [netlify.toml](netlify.toml).
 
 O merge na `main` só é liberado com todos os jobs verdes. O Dependabot abre PRs de atualização de dependências toda segunda-feira.
 
+#### Publicação no site (branch `producao`)
+
+O site em [zancavolt.com.br](https://zancavolt.com.br) é publicado **só a partir da branch `producao`**, e não a cada merge na `main`. Cada publicação gasta créditos do plano grátis da Netlify (15 de 300 por mês); previews e a `main` não gastam (ZV-50).
+
+| Branch | O que a Netlify faz |
+|---|---|
+| PR para `main` | Preview do PR (`deploy-preview-<número>--…`) |
+| `main` | Site de homologação em `main--website-zancavolt.netlify.app` (não é o domínio) |
+| `producao` | Publica em zancavolt.com.br e dispara o teste de fumaça em produção |
+
+Para publicar (normalmente no fim da sprint, junto com a release):
+
+1. Abra um PR da `main` para a `producao` (título: `release: vX.Y.Z`).
+2. Espere a CI verde e confira o preview do PR.
+3. Faça o merge com **Create a merge commit** (não use squash: a `producao` precisa ter os mesmos commits da `main`).
+4. O workflow "Fumaça em produção" espera o commit entrar no ar e roda os testes de fumaça contra o domínio.
+
+Numa urgência (ex.: telefone errado no site), corrija pela `main` como sempre e faça o mesmo PR para a `producao` logo em seguida.
+
 ### Padrão de commit
 
-Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/pt-br/) em português, com a chave do Jira como escopo:
+Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/pt-br/) em português. Até a Sprint 5 o escopo era a chave do Jira; depois do encerramento do Jira, o escopo é um assunto curto em minúsculas:
 
 ```
-tipo(ZV-n): descrição
+tipo(ZV-n): descrição     # até a Sprint 5
+tipo(assunto): descrição  # depois do encerramento do Jira
 ```
 
-Exemplos: `feat(ZV-13): envia o formulário para o WhatsApp`, `fix(ZV-12): corrige a tag original`. Tipos mais usados: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `build`, `ci`, `chore`.
+Exemplos: `feat(ZV-13): envia o formulário para o WhatsApp`, `feat(seo): cidades atendidas e horário no site`. Tipos mais usados: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `build`, `ci`, `chore`.
 
 O Husky (instalado pelo `npm install`) roda o commitlint a cada commit e bloqueia mensagens fora do padrão.
 
@@ -95,8 +157,8 @@ src/
   config/site.ts     Dados da empresa: telefone, WhatsApp, e-mail, região, serviços
   lib/               Funções utilitárias
 public/              Imagens, ícones e arquivos servidos como estão
-tests/               Testes automatizados (E2E e acessibilidade)
-docs/                Documentação do projeto e de QA
+tests/               Testes automatizados (E2E, acessibilidade, fumaça e regressão visual)
+docs/                Plano de Testes e design system
 ```
 
 ## Variáveis de ambiente

@@ -33,7 +33,7 @@ export function Services() {
           id="servicos-title"
           eyebrow="Serviços"
           title="Soluções completas em elétrica, segurança e ar comprimido"
-          description="Do projeto à manutenção, cuidamos de cada etapa com qualidade técnica e segurança."
+          description="Do projeto à manutenção, nossos eletricistas cuidam de cada etapa com qualidade técnica e segurança, em São José dos Pinhais, Curitiba e região."
         />
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
